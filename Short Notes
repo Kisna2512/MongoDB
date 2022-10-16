@@ -1,0 +1,93 @@
+{
+  "_id": {
+    "$oid": "634baf72d76801750e42dd69"
+  },
+  "title": "My first Post",
+  "content": "This is the title of my content and it is amazing "
+}
+ 
+commands
+1.view all databases:
+ show dbs;
+2.Create a new or switch databases
+use dbname
+3. view current database
+db
+
+4.delete databse
+db.dropdatabase()
+
+5.To Show all conections
+show collections
+
+6.To Create Collections
+db.createCollections("collection_name")
+
+7.To Delete The collections
+ db.collection_name.drop()
+
+8.To insert one row
+db.<collection_name>.insert({
+  "name":"Krishna Kotgire",
+  "member_since":5
+})
+
+9.To insert many rows
+db.comments.insertMany([{
+  "name":"Krishna Kotgire",
+  "member_since":5
+},
+{
+  "name":"Yash Ambekar",
+  "member_since":10
+},
+{
+  "name":"Avdesh Vora",
+  "member_since":15
+},
+{
+  "name":"Shubham Gite",
+  "member_since":5
+}
+])
+
+10.To show all rows in a collection
+db.<collection_name>.find()
+
+11. Search in a MongoDB DataBase
+db.<collection_name>.find(  {lang:"python"})
+
+12. We can limit out Collection
+ 
+db.<collection_name>..find().limit()
+
+13.Count the number of row in collection
+db.<collection_name>.find().count() 
+
+14.sort our rows
+db.<collection_name>.find().sort({member_since:1}).pretty()
+1=>Ascending
+-1=>Desceding
+
+15.To find only one row with given attribute
+db.comments.findOne({name:"Krishna Kotgire"})
+
+16.Update a row
+db.<collection_name>.update({},{})
+
+17.MongoDb increment operators
+db.<collection_name>.update({name:"Krishna Kotgire"},
+$inc:{
+member_since:2
+})
+
+18.Delete row
+db.collection.remove({name:"Krishna Kotgire"});
+
+19. Fetching record less than
+d b.collection.find({member_since:{$lt:90}})
+
+20. Fetching record greater than
+db.collection.find({member_since:{$gt:90}})
+
+21.
