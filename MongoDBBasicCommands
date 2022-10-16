@@ -1,0 +1,491 @@
+show dbs()
+MongoshInvalidInputError: [COMMON-10001] 'dbs()' is not a valid argument for "show".
+sh
+Shard class connected to mongodb://localhost:27017/?appName=MongoDB+Compass&directConnection=true&serverSelectionTimeoutMS=2000 via db test
+show dbs;
+admin    40.00 KiB
+config  108.00 KiB
+kkBlog   72.00 KiB
+local    72.00 KiB
+db
+test
+use kkBlog
+'switched to db kkBlog'
+db.createCollection('comments');
+{ ok: 1 }
+show collections
+comments
+content
+db.content.drop()
+true
+ 
+ 
+db.comments.insert({})
+'DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite.'
+{ acknowledged: true,
+  insertedIds: { '0': ObjectId("634bb53fcc1000be03cbd5a7") } }
+db.comments.insert({
+  "name":"Krishna Kotgire",
+})
+{ acknowledged: true,
+  insertedIds: { '0': ObjectId("634bb551cc1000be03cbd5a8") } }
+db.comments.insert({
+  "name":"Krishna Kotgire",
+})
+{ acknowledged: true,
+  insertedIds: { '0': ObjectId("634bb581cc1000be03cbd5a9") } }
+db.comments.insert({
+  "name":"Krishna Kotgire",
+  "member_since":5
+})
+{ acknowledged: true,
+  insertedIds: { '0': ObjectId("634bb597cc1000be03cbd5aa") } }
+db.comments.insertMany([{}])
+{ acknowledged: true,
+  insertedIds: { '0': ObjectId("634bb663cc1000be03cbd5ab") } }
+db.comments.insertMany([{
+  "name":"Krishna Kotgire",
+  "member_since":5
+},
+{
+  "name":"Yash Ambekar",
+  "member_since":10
+},
+{
+  "name":"Avdesh Vora",
+  "member_since":15
+},
+{
+  "name":"Shubham Gite",
+  "member_since":5
+}
+])
+{ acknowledged: true,
+  insertedIds: 
+   { '0': ObjectId("634bb6bdcc1000be03cbd5ac"),
+     '1': ObjectId("634bb6bdcc1000be03cbd5ad"),
+     '2': ObjectId("634bb6bdcc1000be03cbd5ae"),
+     '3': ObjectId("634bb6bdcc1000be03cbd5af") } }
+db.comments.find()
+{ _id: ObjectId("634bb53fcc1000be03cbd5a7") }
+{ _id: ObjectId("634bb551cc1000be03cbd5a8"),
+  name: 'Krishna Kotgire' }
+{ _id: ObjectId("634bb581cc1000be03cbd5a9"),
+  name: 'Krishna Kotgire' }
+{ _id: ObjectId("634bb597cc1000be03cbd5aa"),
+  name: 'Krishna Kotgire',
+  member_since: 5 }
+{ _id: ObjectId("634bb663cc1000be03cbd5ab") }
+{ _id: ObjectId("634bb6bdcc1000be03cbd5ac"),
+  name: 'Krishna Kotgire',
+  member_since: 5 }
+{ _id: ObjectId("634bb6bdcc1000be03cbd5ad"),
+  name: 'Yash Ambekar',
+  member_since: 10 }
+{ _id: ObjectId("634bb6bdcc1000be03cbd5ae"),
+  name: 'Avdesh Vora',
+  member_since: 15 }
+{ _id: ObjectId("634bb6bdcc1000be03cbd5af"),
+  name: 'Shubham Gite',
+  member_since: 5 }
+db.comments.find().pretty()
+{ _id: ObjectId("634bb53fcc1000be03cbd5a7") }
+{ _id: ObjectId("634bb551cc1000be03cbd5a8"),
+  name: 'Krishna Kotgire' }
+{ _id: ObjectId("634bb581cc1000be03cbd5a9"),
+  name: 'Krishna Kotgire' }
+{ _id: ObjectId("634bb597cc1000be03cbd5aa"),
+  name: 'Krishna Kotgire',
+  member_since: 5 }
+{ _id: ObjectId("634bb663cc1000be03cbd5ab") }
+{ _id: ObjectId("634bb6bdcc1000be03cbd5ac"),
+  name: 'Krishna Kotgire',
+  member_since: 5 }
+{ _id: ObjectId("634bb6bdcc1000be03cbd5ad"),
+  name: 'Yash Ambekar',
+  member_since: 10 }
+{ _id: ObjectId("634bb6bdcc1000be03cbd5ae"),
+  name: 'Avdesh Vora',
+  member_since: 15 }
+{ _id: ObjectId("634bb6bdcc1000be03cbd5af"),
+  name: 'Shubham Gite',
+  member_since: 5 }
+db.comments.insertMany([{
+  "name":"Krishna Kotgire",
+  "member_since":5,
+  "Date":new Date()
+},
+{
+  "name":"Yash Ambekar",
+  "member_since":10
+},
+{
+  "name":"Avdesh Vora",
+  "member_since":15
+},
+{
+  "name":"Shubham Gite",
+  "member_since":5
+}
+])
+{ acknowledged: true,
+  insertedIds: 
+   { '0': ObjectId("634bb931cc1000be03cbd5b0"),
+     '1': ObjectId("634bb931cc1000be03cbd5b1"),
+     '2': ObjectId("634bb931cc1000be03cbd5b2"),
+     '3': ObjectId("634bb931cc1000be03cbd5b3") } }
+db.comments.find()
+{ _id: ObjectId("634bb53fcc1000be03cbd5a7") }
+{ _id: ObjectId("634bb551cc1000be03cbd5a8"),
+  name: 'Krishna Kotgire' }
+{ _id: ObjectId("634bb581cc1000be03cbd5a9"),
+  name: 'Krishna Kotgire' }
+{ _id: ObjectId("634bb597cc1000be03cbd5aa"),
+  name: 'Krishna Kotgire',
+  member_since: 5 }
+{ _id: ObjectId("634bb663cc1000be03cbd5ab") }
+{ _id: ObjectId("634bb6bdcc1000be03cbd5ac"),
+  name: 'Krishna Kotgire',
+  member_since: 5 }
+{ _id: ObjectId("634bb6bdcc1000be03cbd5ad"),
+  name: 'Yash Ambekar',
+  member_since: 10 }
+{ _id: ObjectId("634bb6bdcc1000be03cbd5ae"),
+  name: 'Avdesh Vora',
+  member_since: 15 }
+{ _id: ObjectId("634bb6bdcc1000be03cbd5af"),
+  name: 'Shubham Gite',
+  member_since: 5 }
+{ _id: ObjectId("634bb931cc1000be03cbd5b0"),
+  name: 'Krishna Kotgire',
+  member_since: 5,
+  Date: 2022-10-16T07:56:33.769Z }
+{ _id: ObjectId("634bb931cc1000be03cbd5b1"),
+  name: 'Yash Ambekar',
+  member_since: 10 }
+{ _id: ObjectId("634bb931cc1000be03cbd5b2"),
+  name: 'Avdesh Vora',
+  member_since: 15 }
+{ _id: ObjectId("634bb931cc1000be03cbd5b3"),
+  name: 'Shubham Gite',
+  member_since: 5 }
+db.comments.find({member_since:10})
+{ _id: ObjectId("634bb6bdcc1000be03cbd5ad"),
+  name: 'Yash Ambekar',
+  member_since: 10 }
+{ _id: ObjectId("634bb931cc1000be03cbd5b1"),
+  name: 'Yash Ambekar',
+  member_since: 10 }
+db.comments.find().pretty().limit(2)
+{ _id: ObjectId("634bb53fcc1000be03cbd5a7") }
+{ _id: ObjectId("634bb551cc1000be03cbd5a8"),
+  name: 'Krishna Kotgire' }
+db.comments.find().pretty().limit(3)
+{ _id: ObjectId("634bb53fcc1000be03cbd5a7") }
+{ _id: ObjectId("634bb551cc1000be03cbd5a8"),
+  name: 'Krishna Kotgire' }
+{ _id: ObjectId("634bb581cc1000be03cbd5a9"),
+  name: 'Krishna Kotgire' }
+db.comments.find().count()
+13
+db.comments.find({name:"krishna"}).count()
+0
+db.comments.find({name:'krishna'}).count()
+0
+db
+kkBlog
+show collections
+comments
+db.comments.find({name:'krishna kotgire'}).count()
+0
+db.comments.find({name:'Krishna Kotgire'}).count()
+5
+db.comments.find().sort({member_since:1}).pretty()
+{ _id: ObjectId("634bb53fcc1000be03cbd5a7") }
+{ _id: ObjectId("634bb551cc1000be03cbd5a8"),
+  name: 'Krishna Kotgire' }
+{ _id: ObjectId("634bb581cc1000be03cbd5a9"),
+  name: 'Krishna Kotgire' }
+{ _id: ObjectId("634bb663cc1000be03cbd5ab") }
+{ _id: ObjectId("634bb597cc1000be03cbd5aa"),
+  name: 'Krishna Kotgire',
+  member_since: 5 }
+{ _id: ObjectId("634bb6bdcc1000be03cbd5ac"),
+  name: 'Krishna Kotgire',
+  member_since: 5 }
+{ _id: ObjectId("634bb6bdcc1000be03cbd5af"),
+  name: 'Shubham Gite',
+  member_since: 5 }
+{ _id: ObjectId("634bb931cc1000be03cbd5b0"),
+  name: 'Krishna Kotgire',
+  member_since: 5,
+  Date: 2022-10-16T07:56:33.769Z }
+{ _id: ObjectId("634bb931cc1000be03cbd5b3"),
+  name: 'Shubham Gite',
+  member_since: 5 }
+{ _id: ObjectId("634bb6bdcc1000be03cbd5ad"),
+  name: 'Yash Ambekar',
+  member_since: 10 }
+{ _id: ObjectId("634bb931cc1000be03cbd5b1"),
+  name: 'Yash Ambekar',
+  member_since: 10 }
+{ _id: ObjectId("634bb6bdcc1000be03cbd5ae"),
+  name: 'Avdesh Vora',
+  member_since: 15 }
+{ _id: ObjectId("634bb931cc1000be03cbd5b2"),
+  name: 'Avdesh Vora',
+  member_since: 15 }
+db.comments.findOne({name:"Krishna Kotgire"})
+{ _id: ObjectId("634bb551cc1000be03cbd5a8"),
+  name: 'Krishna Kotgire' }
+db.comments.update({name:"Krishna Kotgire"},{
+  { 
+  name: 'Krishna Kotgire',
+  member_since: 50,
+  college:"DYPIT"
+})
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.comments.update({name:"Krishna Kotgire"},{
+  { 
+  name: 'Krishna Kotgire',
+  member_since: 50
+})
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.comments.update({name:"Krishna Kotgire"},{
+  _id: ObjectId("634bb597cc1000be03cbd5aa"),
+  name: 'Krishna Kotgire',
+  member_since: 50} )
+'DeprecationWarning: Collection.update() is deprecated. Use updateOne, updateMany, or bulkWrite.'
+MongoInvalidArgumentError: Update document requires atomic operators
+db.comments.updateOne({name:"Krishna Kotgire"},{
+  _id: ObjectId("634bb597cc1000be03cbd5aa"),
+  name: 'Krishna Kotgire',
+  member_since: 50} )
+MongoInvalidArgumentError: Update document requires atomic operators
+    at new UpdateOneOperation (C:\Users\91904\AppData\Local\MongoDBCompass\app-1.33.1\resources\app.asar.unpacked\node_modules\@mongosh\node-runtime-worker-thread\dist\worker-runtime.js:2:1244011)
+    at Collection.updateOne (C:\Users\91904\AppData\Local\MongoDBCompass\app-1.33.1\resources\app.asar.unpacked\node_modules\@mongosh\node-runtime-worker-thread\dist\worker-runtime.js:2:236094)
+    at CompassServiceProvider.updateOne (C:\Users\91904\AppData\Local\MongoDBCompass\app-1.33.1\resources\app.asar.unpacked\node_modules\@mongosh\node-runtime-worker-thread\dist\worker-runtime.js:2:1143516)
+    at Proxy.updateOne (C:\Users\91904\AppData\Local\MongoDBCompass\app-1.33.1\resources\app.asar.unpacked\node_modules\@mongosh\node-runtime-worker-thread\dist\worker-runtime.js:2:893493)
+    at async Proxy.updateOne (C:\Users\91904\AppData\Local\MongoDBCompass\app-1.33.1\resources\app.asar.unpacked\node_modules\@mongosh\node-runtime-worker-thread\dist\worker-runtime.js:2:51942)
+    at async Proxy.<anonymous> (C:\Users\91904\AppData\Local\MongoDBCompass\app-1.33.1\resources\app.asar.unpacked\node_modules\@mongosh\node-runtime-worker-thread\dist\worker-runtime.js:2:46156)
+    at async Proxy.<anonymous> (C:\Users\91904\AppData\Local\MongoDBCompass\app-1.33.1\resources\app.asar.unpacked\node_modules\@mongosh\node-runtime-worker-thread\dist\worker-runtime.js:2:46591)
+    at async evalmachine.<anonymous>:40:25
+    at async ShellEvaluator.innerEval (C:\Users\91904\AppData\Local\MongoDBCompass\app-1.33.1\resources\app.asar.unpacked\node_modules\@mongosh\node-runtime-worker-thread\dist\worker-runtime.js:2:2361796)
+    at async ShellEvaluator.customEval (C:\Users\91904\AppData\Local\MongoDBCompass\app-1.33.1\resources\app.asar.unpacked\node_modules\@mongosh\node-runtime-worker-thread\dist\worker-runtime.js:2:2361935)
+db.comments.updateOne({name:"Krishna Kotgire"},{
+  
+  name: 'Krishna Kotgire',
+  member_since: 50} )
+MongoInvalidArgumentError: Update document requires atomic operators
+db.comments.updateOne({name:"Krishna Kotgire"},{
+  
+  'name': 'Krishna Kotgire',
+  'member_since': 50} )
+MongoInvalidArgumentError: Update document requires atomic operators
+db.comments.updateOne({name:"Avdesh Vora"},{'name': 'Avdesh Vora',
+  'member_since': 17})
+MongoInvalidArgumentError: Update document requires atomic operators
+    at new UpdateOneOperation (C:\Users\91904\AppData\Local\MongoDBCompass\app-1.33.1\resources\app.asar.unpacked\node_modules\@mongosh\node-runtime-worker-thread\dist\worker-runtime.js:2:1244011)
+    at Collection.updateOne (C:\Users\91904\AppData\Local\MongoDBCompass\app-1.33.1\resources\app.asar.unpacked\node_modules\@mongosh\node-runtime-worker-thread\dist\worker-runtime.js:2:236094)
+    at CompassServiceProvider.updateOne (C:\Users\91904\AppData\Local\MongoDBCompass\app-1.33.1\resources\app.asar.unpacked\node_modules\@mongosh\node-runtime-worker-thread\dist\worker-runtime.js:2:1143516)
+    at Proxy.updateOne (C:\Users\91904\AppData\Local\MongoDBCompass\app-1.33.1\resources\app.asar.unpacked\node_modules\@mongosh\node-runtime-worker-thread\dist\worker-runtime.js:2:893493)
+    at async Proxy.updateOne (C:\Users\91904\AppData\Local\MongoDBCompass\app-1.33.1\resources\app.asar.unpacked\node_modules\@mongosh\node-runtime-worker-thread\dist\worker-runtime.js:2:51942)
+    at async Proxy.<anonymous> (C:\Users\91904\AppData\Local\MongoDBCompass\app-1.33.1\resources\app.asar.unpacked\node_modules\@mongosh\node-runtime-worker-thread\dist\worker-runtime.js:2:46156)
+    at async Proxy.<anonymous> (C:\Users\91904\AppData\Local\MongoDBCompass\app-1.33.1\resources\app.asar.unpacked\node_modules\@mongosh\node-runtime-worker-thread\dist\worker-runtime.js:2:46591)
+    at async evalmachine.<anonymous>:39:25
+    at async ShellEvaluator.innerEval (C:\Users\91904\AppData\Local\MongoDBCompass\app-1.33.1\resources\app.asar.unpacked\node_modules\@mongosh\node-runtime-worker-thread\dist\worker-runtime.js:2:2361796)
+    at async ShellEvaluator.customEval (C:\Users\91904\AppData\Local\MongoDBCompass\app-1.33.1\resources\app.asar.unpacked\node_modules\@mongosh\node-runtime-worker-thread\dist\worker-runtime.js:2:2361935)
+db.comments.updateOne({name:"Krishna Kotgire"},{'name': 'Avdesh Vora',
+  'member_since': 17})
+MongoInvalidArgumentError: Update document requires atomic operators
+db.c20160712.updateOne(
+    { "name" : "Avdesh Vora" }, 
+    { $set: {"name":"Avdesh Vora"},{"member_since":17}},
+    { upsert: true }
+)
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.comments.updateOne(
+    { "name" : "Avdesh Vora" }, 
+    { $set: {"name":"Avdesh Vora"},{"member_since":17}},
+    { upsert: true }
+)
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.comments.updateOne(
+    { "name" : "Avdesh Vora" }, 
+    { $set: {"name":"Avdesh Vora"},{"member_since":17}}
+)
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.comments.updateOne(
+    { "name" : "Avdesh Vora" }, 
+   { _id: ObjectId("634bb931cc1000be03cbd5b2"),
+  name: 'Avdesh Vora',
+  member_since: 15 }
+)
+MongoInvalidArgumentError: Update document requires atomic operators
+db.comments.updateOne(
+    { name : "Avdesh Vora" }, 
+   { 
+  name: 'Avdesh Vora',
+  member_since: 15 }
+)
+MongoInvalidArgumentError: Update document requires atomic operators
+db.comments.updateOne(
+    { name : "Avdesh Vora" }, 
+   { 
+  'name': 'Avdesh Vora',
+  'member_since': 17
+     
+   }
+)
+MongoInvalidArgumentError: Update document requires atomic operators
+db.comments.update(
+    { name : "Avdesh Vora" }, 
+   { 
+  'name': 'Avdesh Vora',
+  'member_since': 17
+     
+   }
+)
+MongoInvalidArgumentError: Update document requires atomic operators
+db.<collection_name>.update({name:"Krishna Kotgire"},
+$inc:{
+member_since:2
+})
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.comments.update({name:"Krishna Kotgire"},
+$inc:{
+member_since:2
+})
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.comments.updateOne({name:"Krishna Kotgire"},
+$inc:{
+member_since:2
+})
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.comments.updateOne({name:"Krishna Kotgire"},
+$inc:{
+member_since:2
+},{})
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.comments.updateOne({name:"Krishna Kotgire"},
+$inc:{
+member_since:2
+},{upsert:true})
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.comments.updateOne({"name":"Krishna Kotgire"},
+$inc:{
+"member_since":2
+},{upsert:true})
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db
+kkBlog
+db.comments.updateOne({ _id: ObjectId("634bb597cc1000be03cbd5aa")},
+$inc:{
+"member_since":2
+},{upsert:true})
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.comments.updateOne({" _id": ObjectId("634bb597cc1000be03cbd5aa")},
+$inc:{
+"member_since":2
+},{upsert:true})
+Error: clone(t={}){const r=t.loc||{};return e({loc:new Position("line"in r?r.line:this.loc.line,"column"in r?r.column:...<omitted>...)} could not be cloned.
+db.comments.updateOne({" _id": ObjectId("634bb597cc1000be03cbd5aa")},
+{$inc:{
+"member_since":2
+}},{upsert:true})
+{ acknowledged: true,
+  insertedId: ObjectId("634bd59ae1d31aaf58bb99fa"),
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 1 }
+db.comments.find()
+{ _id: ObjectId("634bb53fcc1000be03cbd5a7") }
+{ _id: ObjectId("634bb551cc1000be03cbd5a8"),
+  name: 'Krishna Kotgire' }
+{ _id: ObjectId("634bb581cc1000be03cbd5a9"),
+  name: 'Krishna Kotgire' }
+{ _id: ObjectId("634bb597cc1000be03cbd5aa"),
+  name: 'Krishna Kotgire',
+  member_since: 5 }
+{ _id: ObjectId("634bb663cc1000be03cbd5ab") }
+{ _id: ObjectId("634bb6bdcc1000be03cbd5ac"),
+  name: 'Krishna Kotgire',
+  member_since: 5 }
+{ _id: ObjectId("634bb6bdcc1000be03cbd5ad"),
+  name: 'Yash Ambekar',
+  member_since: 10 }
+{ _id: ObjectId("634bb6bdcc1000be03cbd5ae"),
+  name: 'Avdesh Vora',
+  member_since: 15 }
+{ _id: ObjectId("634bb6bdcc1000be03cbd5af"),
+  name: 'Shubham Gite',
+  member_since: 5 }
+{ _id: ObjectId("634bb931cc1000be03cbd5b0"),
+  name: 'Krishna Kotgire',
+  member_since: 5,
+  Date: 2022-10-16T07:56:33.769Z }
+{ _id: ObjectId("634bb931cc1000be03cbd5b1"),
+  name: 'Yash Ambekar',
+  member_since: 10 }
+{ _id: ObjectId("634bb931cc1000be03cbd5b2"),
+  name: 'Avdesh Vora',
+  member_since: 15 }
+{ _id: ObjectId("634bb931cc1000be03cbd5b3"),
+  name: 'Shubham Gite',
+  member_since: 5 }
+{ _id: ObjectId("634bd59ae1d31aaf58bb99fa"),
+  ' _id': ObjectId("634bb597cc1000be03cbd5aa"),
+  member_since: 2 }
+db.comments.remove({name:"Krishna Kotgire"});
+'DeprecationWarning: Collection.remove() is deprecated. Use deleteOne, deleteMany, findOneAndDelete, or bulkWrite.'
+{ acknowledged: true, deletedCount: 5 }
+db.comments.find()
+{ _id: ObjectId("634bb53fcc1000be03cbd5a7") }
+{ _id: ObjectId("634bb663cc1000be03cbd5ab") }
+{ _id: ObjectId("634bb6bdcc1000be03cbd5ad"),
+  name: 'Yash Ambekar',
+  member_since: 10 }
+{ _id: ObjectId("634bb6bdcc1000be03cbd5ae"),
+  name: 'Avdesh Vora',
+  member_since: 15 }
+{ _id: ObjectId("634bb6bdcc1000be03cbd5af"),
+  name: 'Shubham Gite',
+  member_since: 5 }
+{ _id: ObjectId("634bb931cc1000be03cbd5b1"),
+  name: 'Yash Ambekar',
+  member_since: 10 }
+{ _id: ObjectId("634bb931cc1000be03cbd5b2"),
+  name: 'Avdesh Vora',
+  member_since: 15 }
+{ _id: ObjectId("634bb931cc1000be03cbd5b3"),
+  name: 'Shubham Gite',
+  member_since: 5 }
+{ _id: ObjectId("634bd59ae1d31aaf58bb99fa"),
+  ' _id': ObjectId("634bb597cc1000be03cbd5aa"),
+  member_since: 2 }
+db.comments.find({member_since:{$lt:90}})
+{ _id: ObjectId("634bb6bdcc1000be03cbd5ad"),
+  name: 'Yash Ambekar',
+  member_since: 10 }
+{ _id: ObjectId("634bb6bdcc1000be03cbd5ae"),
+  name: 'Avdesh Vora',
+  member_since: 15 }
+{ _id: ObjectId("634bb6bdcc1000be03cbd5af"),
+  name: 'Shubham Gite',
+  member_since: 5 }
+{ _id: ObjectId("634bb931cc1000be03cbd5b1"),
+  name: 'Yash Ambekar',
+  member_since: 10 }
+{ _id: ObjectId("634bb931cc1000be03cbd5b2"),
+  name: 'Avdesh Vora',
+  member_since: 15 }
+{ _id: ObjectId("634bb931cc1000be03cbd5b3"),
+  name: 'Shubham Gite',
+  member_since: 5 }
+{ _id: ObjectId("634bd59ae1d31aaf58bb99fa"),
+  ' _id': ObjectId("634bb597cc1000be03cbd5aa"),
+  member_since: 2 }
+kkBlog
+
+
+
